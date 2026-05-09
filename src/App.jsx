@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Todos from "./components/Todos/Todos";
+import AddTodo from "./components/AddTodo/AddTodo";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -38,10 +39,22 @@ function App() {
     })
   }
 
+  const getnNewTodoId = () => todos.length + 1
+
+  const addNewTodo = (todoData) => {
+    todoData.id = getnNewTodoId()
+    todoData.status = false
+    setTodos([...todos, todoData])
+    console.log(todos)
+  }
+
+
   return (
+    
     <div
     className="min-h-screen w-full overflow-x-hidden bg-[#001f21] text-[#ff7a61] flex justify-center items-center">
       <Wrapper>
+        <AddTodo addNewTodo={addNewTodo}/>
         <Todos todos={todos} toggleCompleted={toggleCompleted}/>
       </Wrapper>
     </div>
