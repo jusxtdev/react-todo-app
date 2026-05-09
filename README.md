@@ -20,4 +20,7 @@ AI help was used for:
 - Writing this README
 
 ## Video Demo
-![video_demo](/react-todo-app.mp4)
+
+https://github.com/user-attachments/assets/03e95e8f-4e70-4f67-881c-786dda196ca0
+
+
