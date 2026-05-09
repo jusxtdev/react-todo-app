@@ -48,6 +48,9 @@ function App() {
     console.log(todos)
   }
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter( (todo) => todo.id !== id))
+  }
 
   return (
     
@@ -55,7 +58,7 @@ function App() {
     className="min-h-screen w-full overflow-x-hidden bg-[#001f21] text-[#ff7a61] flex justify-center items-center">
       <Wrapper>
         <AddTodo addNewTodo={addNewTodo}/>
-        <Todos todos={todos} toggleCompleted={toggleCompleted}/>
+        <Todos todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo}/>
       </Wrapper>
     </div>
   );

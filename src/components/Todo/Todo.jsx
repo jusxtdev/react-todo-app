@@ -1,14 +1,20 @@
-function Todo({ id, title, description, status, toggleCompleted}) {
+function Todo({ id, title, description, status, toggleCompleted, deleteTodo }) {
   const handleChange = () => {
-    toggleCompleted(id)
+    toggleCompleted(id);
+  };
+
+  const handleDelete = () => {
+    deleteTodo(id)
   }
-  
-    return (
+
+  return (
     <div className="w-full min-w-72 rounded-md border border-[#ff7a61] bg-[#001f21] px-4 py-3 text-[#ff7a61] shadow-[0_0_32px_rgba(0,0,0,0.18)]">
       <div className="flex items-center justify-between gap-6">
         <div id="info" className="flex flex-col gap-y-1">
           <div className="text-lg font-bold tracking-wide">{title}</div>
-          <div className="max-w-72 text-[11px] uppercase tracking-[0.16em] text-[#ff9a85]">{description}</div>
+          <div className="max-w-72 text-[11px] uppercase tracking-[0.16em] text-[#ff9a85]">
+            {description}
+          </div>
         </div>
         <div id="update" className="flex flex-col items-center gap-y-3">
           <input
@@ -18,7 +24,9 @@ function Todo({ id, title, description, status, toggleCompleted}) {
             checked={status}
             onChange={handleChange}
           />
-          <button className="rounded border border-[#ff7a61] p-1.5 text-[#ff7a61] transition hover:bg-[#ff7a61] hover:text-[#001f21] focus:outline-none focus:ring-2 focus:ring-[#ff7a61]/40">
+          <button
+          onClick={handleDelete}
+          className="rounded border border-[#ff7a61] p-1.5 text-[#ff7a61] transition hover:bg-[#ff7a61] hover:text-[#001f21] focus:outline-none focus:ring-2 focus:ring-[#ff7a61]/40">
             <svg
               className="fill-current"
               xmlns="http://www.w3.org/2000/svg"
